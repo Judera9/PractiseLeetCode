@@ -104,7 +104,7 @@ class Solution {
                     cur.next = firstPoint;
                     cur = cur.next;
                 }
-                firstPoint = firstPoint.next; // FIXME: same
+                firstPoint.next = null;
             } else {
                 if (newHead == null) {
                     newHead = secondPoint;
