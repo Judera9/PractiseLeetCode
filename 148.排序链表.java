@@ -7,35 +7,36 @@
 // @lc code=start
 
 //  Definition for singly-linked list.
-class ListNode {
-    int val;
-    ListNode next;
+// class ListNode {
+//     int val;
+//     ListNode next;
 
-    ListNode() {
-    }
+//     ListNode() {
+//     }
 
-    ListNode(int val) {
-        this.val = val;
-    }
+//     ListNode(int val) {
+//         this.val = val;
+//     }
 
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
+//     ListNode(int val, ListNode next) {
+//         this.val = val;
+//         this.next = next;
+//     }
+// }
 
 class Solution {
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(3);
-        ListNode node2 = new ListNode(1, node1);
-        ListNode node3 = new ListNode(2, node2);
-        ListNode node4 = new ListNode(4, node3);
+        // ListNode node1 = new ListNode(3);
+        // ListNode node2 = new ListNode(1, node1);
+        // ListNode node3 = new ListNode(2, node2);
+        // ListNode node4 = new ListNode(4, node3);
+        ListNode nullNode = new ListNode();
         Solution solution = new Solution();
-        solution.sortList(node4);
+        solution.sortList(nullNode);
     }
 
     public ListNode sortList(ListNode head) {
-        if (head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
 
@@ -97,25 +98,23 @@ class Solution {
             if (firstPoint.val <= secondPoint.val) {
                 if (newHead == null) {
                     newHead = firstPoint;
-                    firstPoint.next = null;
                     cur = firstPoint;
                 } else {
-                    firstPoint.next = null;
                     cur.next = firstPoint;
                     cur = cur.next;
                 }
-                firstPoint.next = null;
+                // firstPoint.next = null;
+                firstPoint = firstPoint.next;
             } else {
                 if (newHead == null) {
                     newHead = secondPoint;
-                    secondPoint.next = null;
                     cur = secondPoint;
                 } else {
-                    secondPoint.next = null;
                     cur.next = secondPoint;
                     cur = cur.next;
                 }
-                secondPoint = secondPoint.next; // FIXME: this cause two elements are cleared in one loop
+                // secondPoint.next = null;
+                secondPoint = secondPoint.next;
             }
         }
     }
