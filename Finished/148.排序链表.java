@@ -103,7 +103,7 @@ class Solution {
                     cur.next = firstPoint;
                     cur = cur.next;
                 }
-                // firstPoint.next = null;
+                firstPoint.next = null;
                 firstPoint = firstPoint.next;
             } else {
                 if (newHead == null) {
